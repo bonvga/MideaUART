@@ -1,11 +1,12 @@
 #include "Appliance/ApplianceBase.h"
 #include "Helpers/Log.h"
-#ifdef ARDUINO_ARCH_ESP32
+#if defined(ESP8266)
+#include <ESP8266WiFi.h>
+#elif defined(ESP32)
 #include <WiFi.h>
 #else
-#include <ESP8266WiFi.h>
+#error "Unsupported architecture"
 #endif
-
 namespace dudanov {
 namespace midea {
 
